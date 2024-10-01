@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,6 +32,31 @@ public class Main {
         EventRepository.addEvent(event2);
         EventRepository.addEvent(event3);
 
+
+        Event event7 = new Event("No sweetness here",
+                "Sample event summary",
+                new Location("Mim", "Ghana", "435 locations"),
+                new EventDate(12, 2020, "March"),
+                "BBC news"
+        );
+
+        Event event8 = new Event("Blacks Women in STEM",
+                "event organised to awareness in STEM",
+                new Location("Florida", "USA", "Street 123"),
+                new EventDate(12, 2020, "March"),
+                "BBC news"
+        );
+        EventRepository.addEvent(event1);
+        EventRepository.addEvent(event2);
+        EventRepository.addEvent(event3);
+
+
+
+        // Searching for this event title
+        String searchingWord = "Black life in General";
+
+
+        EventRepository.search(searchingWord);
 
     }
 }
