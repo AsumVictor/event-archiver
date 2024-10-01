@@ -34,7 +34,6 @@ public class EventDate {
     }
 
     public boolean equal(EventDate date){
-        System.out.println(this.month + " " + date.getMonth());
         return this.month.equals(date.getMonth()) && this.day == date.getDay() && this.year == date.getYear();
     }
 

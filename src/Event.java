@@ -58,7 +58,7 @@ public class Event {
         count++;
     }
 
-    public Person getOrganizers() {
+    public Person getOrganizer() {
             return organizer;
     }
 

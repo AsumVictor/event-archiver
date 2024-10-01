@@ -22,7 +22,7 @@ public static String delete(long id){
 
        events.remove(foundEvent);
 
-       return foundEvent.getTitle() + "has been successfully deleted (:";
+       return foundEvent.getTitle() + " has been successfully deleted (:";
 }
     // update event
 
@@ -40,18 +40,26 @@ public static Event getEventById(long id){
        return null;
 }
 
+public static void trashAll(){
+      events = new ArrayList<>();
+    }
+
+
     // search
 public static List<Event> search(String title){
        List<Event> resultEvents = new ArrayList<>();
-    HashSet<String> queryKeywords = new HashSet<>(Arrays.asList(title.split(" ")));
+       HashSet<String> queryKeywords = new HashSet<>(Arrays.asList(title.toLowerCase().split(" ")));
 
        for(Event event: events){
 
-           List<String> currEventKeywords = new ArrayList<>(Arrays.asList(event.getTitle().split(" ")));
+           List<String> currEventKeywords = new ArrayList<>(Arrays.asList(event.getTitle().toLowerCase().split(" ")));
+           boolean flag = true;
 
            for(String word: currEventKeywords){
-               if(queryKeywords.contains(word)){
+
+               if(queryKeywords.contains(word) && flag){
                    resultEvents.add(event);
+                   flag = false;
                }
            }
 
@@ -61,7 +69,7 @@ public static List<Event> search(String title){
        return resultEvents;
 }
 
-    // eventOnDate
+    // event On same Date
     public static List<Event> getEventOndate(EventDate date){
         List<Event> resultEvents = new ArrayList<>();
 
@@ -74,7 +82,7 @@ public static List<Event> search(String title){
         return resultEvents;
     }
 
-    // event on Location
+    // event on same Location
     public static List<Event> getEventOnLocation(Location location){
         List<Event> resultEvents = new ArrayList<>();
 
