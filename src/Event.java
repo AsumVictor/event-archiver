@@ -5,44 +5,48 @@ public class Event {
     static private long count;
     private String title;
     private Location location;
-    private Date date;
+    private EventDate date;
     private Person organizer;
     protected long id;
     private String eventSources;
     private ArrayList<Image> images;
+    private String summary;
 
 
-    public Event(String title, Location location, Date date, String eventSources){
+    public Event(String title, String summary, Location location, EventDate date, String eventSources){
 
           this.title = title;
           this.location = location;
           this.eventSources = eventSources;
           this.date = date;
           this.id = count + 1;
-        count++;
+        this.summary = summary;
+          count++;
     }
 
-    public Event(String title, Location location, Date date, String eventSources, Person organizer){
+    public Event(String title, String summary,  Location location, EventDate date, String eventSources, Person organizer){
         this.title = title;
         this.location = location;
         this.eventSources = eventSources;
         this.date = date;
         this.organizer = organizer;
         this.id = count + 1;
+        this.summary = summary;
         count++;
     }
 
-    public Event(String title, Location location, Date date, String eventSources, ArrayList<Image> images){
+    public Event(String title, String summary, Location location, EventDate date, String eventSources, ArrayList<Image> images){
         this.title = title;
         this.location = location;
         this.eventSources = eventSources;
         this.date = date;
         this.images = images;
         this.id = count + 1;
+        this.summary = summary;
         count++;
     }
 
-    public Event(String title, Location location, Date date, String eventSources, Person organizer, ArrayList<Image> images){
+    public Event(String title, String summary, Location location, EventDate date, String eventSources, Person organizer, ArrayList<Image> images){
         this.title = title;
         this.location = location;
         this.eventSources = eventSources;
@@ -50,6 +54,7 @@ public class Event {
         this.organizer = organizer;
         this.images = images;
         this.id = count + 1;
+        this.summary = summary;
         count++;
     }
 
@@ -57,7 +62,7 @@ public class Event {
             return organizer;
     }
 
-    public Date getDate() {
+    public EventDate getDate() {
         return date;
     }
 
@@ -81,7 +86,11 @@ public class Event {
         return id;
     }
 
-    public void setDate(Date date) {
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setDate(EventDate date) {
         this.date = date;
     }
 
@@ -105,6 +114,10 @@ public class Event {
         this.title = title;
     }
 
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
     public boolean happenOnsameLocation(Event event){
        return this.location.equals(event.getLocation());
     }
@@ -123,6 +136,7 @@ public class Event {
                 ", id=" + id +
                 ", eventSources='" + eventSources + '\'' +
                 ", images=" + images +
+                ", summary='" + summary + '\'' +
                 '}';
     }
 }

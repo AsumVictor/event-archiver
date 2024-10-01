@@ -4,10 +4,10 @@ import java.util.HashSet;
 import java.util.List;
 
 public class EventRepository {
-    static private List<Event> events;
+    static private List<Event> events = new ArrayList<>();
 
     // add event
-   public String add(Event newEvent){
+   public static String addEvent(Event newEvent){
        events.add(newEvent);
 
        return newEvent.getTitle() + " has successfully added (:";
@@ -62,7 +62,7 @@ public static List<Event> search(String title){
 }
 
     // eventOnDate
-    public static List<Event> eventOndate(Date date){
+    public static List<Event> getEventOndate(EventDate date){
         List<Event> resultEvents = new ArrayList<>();
 
         for(Event event: events){
@@ -75,7 +75,7 @@ public static List<Event> search(String title){
     }
 
     // event on Location
-    public static List<Event> eventOnLocation(Location location){
+    public static List<Event> getEventOnLocation(Location location){
         List<Event> resultEvents = new ArrayList<>();
 
         for(Event event: events){

@@ -1,9 +1,9 @@
-public class Date {
+public class EventDate {
     private int day;
     private long year;
     private String month;
 
-    public Date(int day, long year, String month){
+    public EventDate(int day, long year, String month){
         this.day = day;
         this.year = year;
         this.month = month;
@@ -33,7 +33,8 @@ public class Date {
         this.year = year;
     }
 
-    public boolean equal(Date date){
+    public boolean equal(EventDate date){
+        System.out.println(this.month + " " + date.getMonth());
         return this.month.equals(date.getMonth()) && this.day == date.getDay() && this.year == date.getYear();
     }
 
